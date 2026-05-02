@@ -30,18 +30,13 @@ invitacion-boda/
 
 ## Canva
 
-El iframe quedó preparado con este link como intento inicial:
+El iframe ya quedó preparado con el link oficial de embed:
 
 ```text
-https://lindayezequiel.my.canva.site
+https://www.canva.com/design/DAHIDlusu0U/RXvQCdLagPw2OUSmEtkCwQ/view?embed
 ```
 
-En la validación local, Canva bloqueó el link directo dentro del iframe. Para publicarlo correctamente, abrí Canva y buscá **Compartir > Insertar / Embed**.
-
-- Si Canva te da un link de embed, pegalo en `index.html`, en el atributo `data-canva-url` del iframe `canvaFrame`.
-- Si Canva te da un iframe completo, reemplazá el iframe de `index.html` manteniendo `id="canvaFrame"` para que el JavaScript pueda cargarlo después del toque.
-
-Si en GitHub Pages ves una pantalla en blanco después de tocar **Ver invitación**, usá el código oficial de **Embed / Insertar** de Canva y pegalo en el lugar indicado en `index.html`.
+No hace falta usar el link viejo `https://lindayezequiel.my.canva.site` dentro del código.
 
 ## Activar GitHub Pages
 

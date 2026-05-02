@@ -123,13 +123,27 @@ button {
   inset: 0;
   z-index: 1;
   min-height: 100dvh;
+  overflow-y: auto;
   background: var(--paper);
+  -webkit-overflow-scrolling: touch;
+}
+
+.invite__canvas {
+  position: relative;
+  width: min(100%, 46rem);
+  height: 0;
+  margin: 0 auto;
+  padding-top: 615.5198%;
+  overflow: hidden;
+  background: var(--white);
 }
 
 .invite__frame {
+  position: absolute;
+  inset: 0;
   display: block;
   width: 100%;
-  height: 100dvh;
+  height: 100%;
   border: 0;
   background: var(--white);
 }
