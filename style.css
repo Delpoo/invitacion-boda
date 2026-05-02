@@ -1,0 +1,225 @@
+:root {
+  color-scheme: light;
+  --paper: #f8f1ea;
+  --paper-deep: #ead8cc;
+  --ink: #3f342e;
+  --rose: #9e6f66;
+  --sage: #6f7867;
+  --white: #fffaf6;
+  --shadow: 0 18px 50px rgba(63, 52, 46, 0.16);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+button {
+  font: inherit;
+}
+
+.site {
+  min-height: 100dvh;
+}
+
+.cover {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  overflow: hidden;
+  padding: 2rem 1.25rem;
+  background:
+    linear-gradient(180deg, rgba(255, 250, 246, 0.92), rgba(248, 241, 234, 0.96)),
+    linear-gradient(135deg, var(--paper), var(--paper-deep));
+  transition: opacity 320ms ease, visibility 320ms ease;
+}
+
+.cover::before {
+  content: "";
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid rgba(158, 111, 102, 0.38);
+  pointer-events: none;
+}
+
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 1.55rem;
+  border: 1px solid rgba(111, 120, 103, 0.18);
+  pointer-events: none;
+}
+
+.cover--hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.cover__content {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 1.65rem;
+  width: min(100%, 38rem);
+  text-align: center;
+}
+
+.cover__title {
+  max-width: 11ch;
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.55rem;
+  font-weight: 400;
+  line-height: 1.04;
+  text-wrap: balance;
+  overflow-wrap: break-word;
+}
+
+.cover__button {
+  min-width: 11.5rem;
+  min-height: 3.2rem;
+  padding: 0.85rem 1.35rem;
+  border: 1px solid rgba(63, 52, 46, 0.88);
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--white);
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.cover__button:hover {
+  background: #2f2722;
+  border-color: #2f2722;
+}
+
+.cover__button:active {
+  transform: translateY(1px);
+}
+
+.cover__button:focus-visible,
+.music-toggle:focus-visible {
+  outline: 3px solid rgba(158, 111, 102, 0.42);
+  outline-offset: 3px;
+}
+
+.invite {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  min-height: 100dvh;
+  background: var(--paper);
+}
+
+.invite__frame {
+  display: block;
+  width: 100%;
+  height: 100dvh;
+  border: 0;
+  background: var(--white);
+}
+
+.music-toggle {
+  position: fixed;
+  right: max(0.8rem, env(safe-area-inset-right));
+  bottom: max(0.8rem, env(safe-area-inset-bottom));
+  z-index: 10;
+  max-width: calc(100vw - 1.6rem);
+  min-height: 2.5rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(255, 250, 246, 0.42);
+  border-radius: 6px;
+  background: rgba(63, 52, 46, 0.86);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 0.86rem;
+  box-shadow: 0 10px 26px rgba(38, 31, 27, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.audio-notice {
+  position: fixed;
+  right: max(0.8rem, env(safe-area-inset-right));
+  bottom: calc(max(0.8rem, env(safe-area-inset-bottom)) + 3.05rem);
+  z-index: 11;
+  width: min(18rem, calc(100vw - 1.6rem));
+  margin: 0;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(158, 111, 102, 0.35);
+  border-radius: 6px;
+  background: rgba(255, 250, 246, 0.95);
+  color: var(--ink);
+  font-size: 0.86rem;
+  line-height: 1.35;
+  box-shadow: 0 12px 32px rgba(38, 31, 27, 0.16);
+}
+
+.audio-notice--static {
+  left: 50%;
+  right: auto;
+  bottom: 1rem;
+  transform: translateX(-50%);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (min-width: 48rem) {
+  .cover {
+    padding: 3rem;
+  }
+
+  .cover::before {
+    inset: 1.5rem;
+  }
+
+  .cover::after {
+    inset: 2.25rem;
+  }
+
+  .cover__content {
+    gap: 2rem;
+    width: min(100%, 52rem);
+  }
+
+  .cover__title {
+    max-width: 13ch;
+    font-size: 4.2rem;
+  }
+}
+
+@media (max-height: 34rem) {
+  .cover__title {
+    font-size: 2.05rem;
+  }
+
+  .cover__content {
+    gap: 1.1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+    animation-duration: 1ms !important;
+  }
+}

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f6eee7">
+    <title>Invitación Linda & Ezequiel</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main class="site">
+      <section class="cover" id="cover" aria-labelledby="cover-title">
+        <div class="cover__content">
+          <h1 class="cover__title" id="cover-title">Join us for a little party to celebrate a lot of love</h1>
+          <button class="cover__button" id="openInviteButton" type="button">Ver invitación</button>
+        </div>
+      </section>
+
+      <section class="invite" id="invite" aria-label="Invitación de casamiento" aria-hidden="true" hidden>
+        <!--
+          Si Canva te da un enlace oficial de Embed / Insertar, pegalo en data-canva-url.
+          Si Canva te da un iframe completo, reemplazá este iframe manteniendo id="canvaFrame".
+        -->
+        <iframe
+          class="invite__frame"
+          id="canvaFrame"
+          title="Invitación de casamiento Linda y Ezequiel"
+          data-canva-url="https://lindayezequiel.my.canva.site"
+          src="about:blank"
+          loading="eager"
+          allowfullscreen
+          allow="fullscreen"
+          referrerpolicy="strict-origin-when-cross-origin"
+        ></iframe>
+      </section>
+    </main>
+
+    <audio id="weddingAudio" src="musica.mp3" loop preload="auto"></audio>
+
+    <button class="music-toggle" id="musicToggle" type="button" aria-pressed="true" hidden>
+      Pausar música
+    </button>
+
+    <p class="audio-notice" id="audioNotice" role="status" aria-live="polite" hidden></p>
+
+    <noscript>
+      <p class="audio-notice audio-notice--static">
+        Para ver la invitación con música necesitás habilitar JavaScript.
+      </p>
+    </noscript>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
