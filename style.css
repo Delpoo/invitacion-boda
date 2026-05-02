@@ -129,23 +129,27 @@ button {
 }
 
 .invite__canvas {
+  --canva-mobile-zoom: 1;
   position: relative;
   width: min(100%, 46rem);
   height: 0;
   margin: 0 auto;
-  padding-top: 615.5198%;
+  padding-top: calc(615.5198% * var(--canva-mobile-zoom));
   overflow: hidden;
   background: var(--white);
 }
 
 .invite__frame {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 50%;
   display: block;
   width: 100%;
-  height: 100%;
+  height: calc(100% / var(--canva-mobile-zoom));
   border: 0;
   background: var(--white);
+  transform: translateX(-50%) scale(var(--canva-mobile-zoom));
+  transform-origin: top center;
 }
 
 .music-toggle {
@@ -215,6 +219,12 @@ button {
   .cover__title {
     max-width: 13ch;
     font-size: 4.2rem;
+  }
+}
+
+@media (max-width: 47.9375rem) {
+  .invite__canvas {
+    --canva-mobile-zoom: 2.05;
   }
 }
 
